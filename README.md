@@ -51,21 +51,7 @@ Deploy the generated WAR file to a servlet container like Apache Tomcat.
 
 **Project Structure**
 
-**servlet-project/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/example/servletproject/
-│   │   │       ├── HelloServlet.java          # Handles multiple HTTP methods
-│   │   │       ├── ExtensionMapping.java      # Demonstrates extension-based URL patterns
-│   │   │       ├── MultipleMapping.java       # Maps multiple URL patterns
-│   │   │       ├── TestDeploymentDServlet.java # Basic servlet for testing deployment
-│   │   │       └── TestServlet.java           # Generates HTML with inline CSS
-│   │   └── resources/                        # Configuration files (if any)
-│   └── test/
-│       └── java/                             # Unit tests (if any)
-├── pom.xml                                   # Maven build configuration
-└── README.md                                 # Project documentation**
+![Screenshot 2025-01-30 115054](https://github.com/user-attachments/assets/93b08b20-07ae-4767-8de5-143accd34043)
 
 
 

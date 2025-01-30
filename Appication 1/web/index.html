@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8000fb;
+            --primary-hover: #736b6b;
+            --background: linear-gradient(135deg, #96d5b7, #7aa385);
+            --card-bg: #ffffff;
+        }
+
+        body {
+            background: var(--background);
+            color: #fff;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            padding: 2rem 0;
+        }
+
+        #dashboard {
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dashboard-card {
+            background-color: var(--card-bg);
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .dashboard-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            border: none;
+            color: #fff;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: scale(1.05);
+        }
+
+        h3 {
+            font-weight: 600;
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row mb-4">
+        <div class="col">
+            <h1 id="dashboard" class="display-4 mb-4 text-white">Dashboard</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card dashboard-card h-100">
+                <div class="card-body text-center py-5">
+                    <i class="bi bi-people-fill dashboard-icon mb-3"></i>
+                    <h3>Customer Management</h3>
+                    <p class="text-muted">Manage your customer database</p>
+                    <a href="pages/customer.html" class="btn btn-primary">Access</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card dashboard-card h-100">
+                <div class="card-body text-center py-5">
+                    <i class="bi bi-box-seam-fill dashboard-icon mb-3"></i>
+                    <h3>Item Management</h3>
+                    <p class="text-muted">Manage your product inventory</p>
+                    <a href="pages/item.html" class="btn btn-primary">Access</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card dashboard-card h-100">
+                <div class="card-body text-center py-5">
+                    <i class="bi bi-cart-fill dashboard-icon mb-3"></i>
+                    <h3>Order Management</h3>
+                    <p class="text-muted">Track and manage orders</p>
+                    <a href="pages/placeOrder.html" class="btn btn-primary">Access</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

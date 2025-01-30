@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Management</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Previous styles remain unchanged */
+    :root {
+      --primary-color: #4f46e5;
+      --primary-hover: #4338ca;
+      --background: #fafafa;
+      --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    body {
+      background-color: var(--background);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      padding: 2rem 0;
+      color: #1a1a1a;
+    }
+
+    .card {
+      background: white;
+      border: none;
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 2rem;
+    }
+
+    .card-header {
+      background: transparent;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 2rem 2rem 1.5rem;
+    }
+
+    .card-header h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #111827;
+      margin: 0;
+    }
+
+    .card-body {
+      padding: 2rem;
+    }
+
+    .form-floating > label {
+      font-weight: 500;
+      color: #6b7280;
+    }
+
+    .form-control {
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+    }
+
+    .form-floating > .form-control:focus ~ label,
+    .form-floating > .form-control:not(:placeholder-shown) ~ label {
+      color: var(--primary-color);
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      border: none;
+      border-radius: 12px;
+      padding: 0.75rem 2rem;
+      font-weight: 500;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .table {
+      margin: 0;
+    }
+
+    .table th {
+      font-weight: 600;
+      color: #4b5563;
+      border-bottom: 2px solid #e5e7eb;
+      padding: 1rem 1.5rem;
+    }
+
+    .table td {
+      padding: 1.25rem 1.5rem;
+      color: #1f2937;
+      vertical-align: middle;
+    }
+
+    .table tbody tr {
+      transition: all 0.2s ease-in-out;
+    }
+
+    .table tbody tr:hover {
+      background-color: #f9fafb;
+    }
+
+    .action-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-edit {
+      background-color: #f3f4f6;
+      color: #374151;
+      margin-right: 0.5rem;
+    }
+
+    .btn-edit:hover {
+      background-color: #e5e7eb;
+      color: #111827;
+    }
+
+    .btn-delete {
+      background-color: #fee2e2;
+      color: #dc2626;
+    }
+
+    .btn-delete:hover {
+      background-color: #fecaca;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem 0;
+      }
+
+      .card-header, .card-body {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Form Section -->
+  <div class="card" id="customerFormCard">
+    <div class="card-header">
+      <h2>New Customer</h2>
+    </div>
+    <div class="card-body">
+      <form id="customerForm">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="form-floating">
+              <label for="customerId"></label><input type="number" class="form-control" id="customerId" name="customerName" placeholder="Name" required>
+              <label for="customerName">ID</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="customerName" name="customerName" placeholder="Name" required>
+              <label for="customerName">Full Name</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="email" class="form-control" id="customerEmail" name="customerEmail" placeholder="Email" required>
+              <label for="customerEmail">Email Address</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating">
+              <input type="tel" class="form-control" id="customerPhone" name="customerPhone" placeholder="Phone" required>
+              <label for="customerPhone">Phone Number</label>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="customerAddress" name="customerAddress" placeholder="Address" required>
+              <label for="customerAddress">Full Address</label>
+            </div>
+          </div>
+          <div class="col-12 text-end">
+            <button type="submit" class="btn btn-primary" id="saveCustomerBtn">Save</button>
+            <button type="button" class="btn btn-primary" id="updateCustomerBtn" style="background: #ffc400">Update</button>
+            <button type="button" class="btn btn-primary" id="cleatCustomerBtn" style="background: #ff0000" onclick="clearOnActon()">Clear</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Table Section -->
+  <div class="card" id="customerTableCard">
+    <div class="card-header">
+      <h2>Customer List</h2>
+    </div>
+    <div class="table-responsive">
+      <table class="table" id="customerTable">
+        <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Address</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody id="customerTableBody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script src="../scripts/customer.js"></script>
+</body>
+</html>

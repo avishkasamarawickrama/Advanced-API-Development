@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .item-form-section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .table-section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .btn-action {
+            margin: 0 5px;
+        }
+        .form-buttons {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body style="background-color: #f5f5f5;">
+<div class="container">
+    <!-- Item Form Section -->
+    <div class="item-form-section">
+        <h2 class="mb-4">New Item</h2>
+        <form id="itemForm">
+            <div class="row">
+                <!-- Item ID -->
+                <div class="col-md-6 mb-3">
+                    <label for="itemId" class="form-label">Item ID</label>
+                    <input type="text" class="form-control" id="itemId" readonly>
+                </div>
+                <!-- Item Name -->
+                <div class="col-md-6 mb-3">
+                    <label for="itemName" class="form-label">Item Name</label>
+                    <input type="text" class="form-control" id="itemName" required>
+                </div>
+                <!-- Price -->
+                <div class="col-md-6 mb-3">
+                    <label for="price" class="form-label">Price ($)</label>
+                    <input type="number" step="0.01" class="form-control" id="price" required>
+                </div>
+                <!-- Stock -->
+                <div class="col-md-6 mb-3">
+                    <label for="stockQuantity" class="form-label">Stock Quantity</label>
+                    <input type="number" class="form-control" id="stockQuantity" required>
+                </div>
+                <!-- Category -->
+                <div class="col-md-12 mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select class="form-control" id="category" required>
+                        <option value="">Select a category</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="furniture">Furniture</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="books">Books</option>
+                        <option value="food">Food</option>
+                    </select>
+                </div>
+                <!-- Description -->
+                <div class="col-md-12 mb-3">
+                    <label for="description" class="form-label">Description (Optional)</label>
+                    <textarea class="form-control" id="description" rows="3"></textarea>
+                </div>
+            </div>
+            <!-- Form Buttons -->
+            <div class="form-buttons">
+                <button type="button" id="saveItemBtn" class="btn btn-primary">Save</button>
+                <button type="button" id="updateItemBtn" class="btn btn-success">Update</button>
+                <button type="button" id="clearBtn" class="btn btn-secondary">Clear</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Item List Section -->
+    <div class="table-section">
+        <h2 class="mb-4">Item List</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody id="itemTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script src="../scripts/item.js"></script>
+</body>
+</html>
